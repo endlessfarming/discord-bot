@@ -4,7 +4,7 @@ import commands
 
 def get_token():  
     f = open('token', 'r')
-    return f.readline()
+    return f.readline().rstrip()
 
 client = discord.Client()
 
