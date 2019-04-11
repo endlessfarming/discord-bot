@@ -1,7 +1,10 @@
 import discord
 import commands
 
-token = 'NTY1ODgxMjMwNDIwMjEzNzg1.XK8-pg.oeI4b3F377zZRf240WndmM-PbgE'
+
+def get_token():  
+    f = open('token', 'r')
+    return f.readline()
 
 client = discord.Client()
 
@@ -13,7 +16,7 @@ async def on_message(message):
 
 
 
-client.run(token)
+client.run(get_token())
 
 
 

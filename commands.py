@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 async def parse(message):
-    if (message.content == "!reset"):
+    if (message.content.startswith("!reset")):
         await message.channel.send(get_reset_time())
 
 
