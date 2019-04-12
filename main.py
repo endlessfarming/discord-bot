@@ -1,22 +1,23 @@
 import discord
-import commands
-
+from discord.ext import commands
+import custom_commands
 
 def get_token():  
     f = open('token', 'r')
     return f.readline().rstrip()
 
-client = discord.Client()
+bot = commands.Bot(command_prefix='!')
 
-@client.event
-async def on_message(message):
-    await commands.parse(message)
+@bot.command()
+async def reset(ctx):    
+    await custom_commands.reset(ctx)
+
+@bot.command()
+async def clear(ctx):
+    await custom_commands.clear_channel(ctx)
 
 
-
-
-
-client.run(get_token())
+bot.run(get_token())
 
 
 
